@@ -1,0 +1,15 @@
+.flex-papa {
+  display: flex;
+  flex-direction: column;
+}
+.product-card {
+  box-shadow: 1px 2px 1px 2px;
+  /* border-color: gray; */
+  padding: 5px;
+  transition: all 0.3s ease;
+  margin: 5px;
+  background: white;
+}
+.product-card:hover {
+  box-shadow: 5px 3px 5px 3px;
+}
