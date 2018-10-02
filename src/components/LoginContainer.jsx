@@ -9,7 +9,6 @@ export default class LoginContainer extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-
     if (e.target.email.value !== "bliss@hot.com") {
       const error = "tu correo esta mal";
       this.setState({ error });
@@ -31,7 +30,7 @@ export default class LoginContainer extends Component {
       this.setState({ error, clase });
       //
     } else if (value !== "omar.navarro@g.austincc.edu") {
-      const clase = "warning;";
+      const clase = "warning";
       const error = "no es tu correo";
       this.setState({ error, clase });
     } else {
