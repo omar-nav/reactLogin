@@ -4,7 +4,7 @@ import LoginDisplay from "./LoginDisplay";
 export default class LoginContainer extends Component {
   state = {
     error: null,
-    class: null
+    clase: null
   };
 
   onSubmit = e => {
