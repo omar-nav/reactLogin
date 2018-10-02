@@ -1,12 +1,18 @@
 import React from "react";
 import styles from "./LoginDisplay.module.css";
 
-const LoginDisplay = ({ onSubmit, error }) => {
+const LoginDisplay = ({ clase, onChange, onSubmit, error }) => {
   return (
     <div className={styles.pollollon}>
       <h1>Inicia Sesión</h1>
       <form onSubmit={onSubmit}>
-        <input name="email" type="email" placeholder="email" />
+        <input
+          className={styles[clase]}
+          onChange={onChange}
+          name="email"
+          type="email"
+          placeholder="Email"
+        />
 
         <input name="pass" type="password" placeholder="password" />
         <p>{error}</p>
