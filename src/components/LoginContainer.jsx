@@ -4,7 +4,8 @@ import LoginDisplay from "./LoginDisplay";
 export default class LoginContainer extends Component {
   state = {
     error: null,
-    clase: null
+    clase: null,
+    type: "password"
   };
 
   onSubmit = e => {
@@ -41,16 +42,28 @@ export default class LoginContainer extends Component {
     // verde todo chido
   };
 
+  changeType = e => {
+    if (e.target.checked) {
+      const type = "text";
+      this.setState({ type });
+    } else {
+      const type = "password";
+      this.setState({ type });
+    }
+  };
+
   render() {
-    const { error, clase } = this.state;
+    const { error, clase, type } = this.state;
     return (
       <div>
         <LoginDisplay
           //2 pasarle el error al dsiplay
           clase={clase}
           error={error}
+          type={type}
           onSubmit={this.onSubmit}
           onChange={this.onChange}
+          changeType={this.changeType}
         />
       </div>
     );

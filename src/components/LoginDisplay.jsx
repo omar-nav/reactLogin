@@ -1,7 +1,14 @@
 import React from "react";
 import styles from "./LoginDisplay.module.css";
 
-const LoginDisplay = ({ clase, onChange, onSubmit, error }) => {
+const LoginDisplay = ({
+  type,
+  changeType,
+  clase,
+  onChange,
+  onSubmit,
+  error
+}) => {
   return (
     <div className={styles.pollollon}>
       <h1>Inicia Sesión</h1>
@@ -13,11 +20,11 @@ const LoginDisplay = ({ clase, onChange, onSubmit, error }) => {
           type="email"
           placeholder="Email"
         />
-
-        <input name="pass" type="password" placeholder="password" />
+        <input name="pass" type={type} placeholder="Password" />
+        <input onChange={changeType} type="checkbox" /> Mostrar contraseña
+        <br />
         <p>{error}</p>
-
-        <input type="submit" value="ok" />
+        <input type="submit" />
       </form>
     </div>
   );
