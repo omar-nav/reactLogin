@@ -1,10 +1,10 @@
 import React from "react";
 
-const FormDisplay = ({ onChange }) => {
+const FormDisplay = ({ onChange, onSubmit }) => {
   return (
     <div>
       <h2>Alta de producto</h2>
-      <form>
+      <form onSubmit={onSubmit}>
         <input
           onChange={onChange}
           placeholder="nombre del producto"

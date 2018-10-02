@@ -6,6 +6,15 @@ class FormContainer extends Component {
     products: []
   };
 
+  onSubmit = e => {
+    e.preventDefault();
+    const { form, products } = this.state;
+    products.push(form);
+    this.setState({ products }, () => {
+      console.log(this.state);
+    });
+  };
+
   onChange = e => {
     const field = e.target.name;
     const value = e.target.value;
@@ -13,18 +22,12 @@ class FormContainer extends Component {
     form[field] = value;
     this.setState({ form });
   };
-  // onSubmit agregar los valores al state
-  onSubmit = e => {
-    e.preventDefault();
-    const { form, products } = this.state;
-    products.push(form);
-    this.setState({ products });
-  };
+
   render() {
     console.log(this.state.form);
     return (
       <div>
-        <FormDisplay onChange={this.onChange} />
+        <FormDisplay onChange={this.onChange} onSubmit={this.onSubmit} />
       </div>
     );
   }
