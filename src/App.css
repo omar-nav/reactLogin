@@ -1,4 +1,8 @@
 @import "./components/products/products.css";
+.ihatemyboss {
+  background-color: #282c34;
+}
+
 .pollollon {
   background: red;
 }

@@ -5,26 +5,19 @@ export default class LoginContainer extends Component {
   state = {
     error: null,
     clase: null,
-    type: "password"
+    type: "password",
+    user: {}
   };
 
   onSubmit = e => {
     e.preventDefault();
-    if (e.target.email.value !== "bliss@hot.com") {
-      const error = "tu correo esta mal";
-      this.setState({ error });
-      //1.- comprobar email y password sean correctos
-    } else if (e.target.pass.value !== "123") {
-      const error = "tu pass esta mal";
-      this.setState({ error });
-    } else {
-      this.setState({ error: null });
-    }
-  };
+    localStorage.setItem('user', JSON.stringify(this.state.user))
+    this.props.history.push('/')
+  }
 
   onChange = e => {
     // comprobar en tiempo real que el email es correct
-    const { value } = e.target;
+    const { value, name } = e.target;
     if (!value.includes("@")) {
       const clase = "error";
       const error = "Esto no tiene forma de correo";
@@ -37,9 +30,12 @@ export default class LoginContainer extends Component {
     } else {
       this.setState({ error: null, clase: "success" });
     }
+    const { user } = this.state
+    user[name] = value
     // rojo no tiene arroba
     // amarillo no es tu correo
     // verde todo chido
+    this.setState({ user })
   };
 
   changeType = e => {

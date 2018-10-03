@@ -36,6 +36,10 @@ class ProductsContains extends Component {
       }
     ]
   };
+  componentWillMount() {
+    const user = JSON.parse(localStorage.getItem('user'))
+    if (!user) this.props.history.push('/login')
+  }
   showProduct = (product, index) => {
     return <ProductsDisplay key={index} {...product} />;
   };

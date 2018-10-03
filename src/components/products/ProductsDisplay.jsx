@@ -14,7 +14,7 @@ const ProductsDisplay = ({ colors = [], name, price, pic = lupe }) => {
       <p>{price}</p>
       <div style={{ display: "flex", margin: "23px" }}>
         {colors.map((color, index) => (
-          <div style={{ backgroundColor: color }} className="colorsin" />
+          <div key={{ index }} style={{ backgroundColor: color }} className="colorsin" />
           // pass color string into element
         ))}
       </div>
